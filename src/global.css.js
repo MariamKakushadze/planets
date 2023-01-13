@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import stars from "./assets/background-stars.svg";
 
 export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Antonio:wght@400;500;600;700&display=swap');
@@ -14,5 +15,7 @@ body {
     font-family: 'Antonio', sans-serif;
     font-weight: 400;
     font-style:normal;
+    background-color: #070724;
+    background-image:url(${stars})
   }
 `;
