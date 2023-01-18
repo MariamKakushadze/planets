@@ -1,20 +1,16 @@
-import BurgerMenu from "./components/burgerMenu";
-import Header from "./components/header";
-import GlobalCss from "./global.css";
-import styled from "styled-components";
+import { Route, Routes } from "react-router-dom";
+
+import Menu from "./components/menu";
+import PlanetPage from "./pages/PlanetPage";
 
 function App() {
   return (
-    <Wrapper>
-      <GlobalCss />
-      <Header />
-      <BurgerMenu />
-    </Wrapper>
+    <Routes>
+      <Route path="/:name" element={<PlanetPage />} />
+
+      <Route path="/Menu" element={<Menu />} />
+    </Routes>
   );
 }
 
 export default App;
-
-const Wrapper = styled.div`
-  padding: 16px 24px 46px 24px;
-`;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ArrowIcon from "../assets/icon-chevron.svg";
-
+import { NavLink as Link } from "react-router-dom";
 export default function BurgerMenu() {
   const menuItems = [
     { color: "#DEF4FC", name: "MERCURY" },
@@ -15,13 +15,13 @@ export default function BurgerMenu() {
   return (
     <BurgerMenuContainer>
       <Ul>
-        {menuItems.map((item) => {
+        {menuItems.map((item, index) => {
           return (
-            <Li>
+            <Navlink to={`/${item.name}`} key={index}>
               <Circle style={{ backgroundColor: `${item.color}` }} />
               <PlanetName>{item.name}</PlanetName>
               <Arrow />
-            </Li>
+            </Navlink>
           );
         })}
       </Ul>
@@ -40,18 +40,18 @@ const Ul = styled.ul`
   padding: 0;
   margin: 0;
 `;
-const Li = styled.li`
+const Navlink = styled(Link)`
   display: flex;
   display: row;
   gap: 25px;
   align-items: center;
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  outline-offset: 20px;
   &:last-child {
     border-bottom: none;
   }
   margin: 0;
+  text-decoration: none;
 `;
 
 const Circle = styled.div`
