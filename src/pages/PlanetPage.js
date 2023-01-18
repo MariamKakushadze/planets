@@ -6,6 +6,7 @@ import PlanetsNav from "./planetNav";
 import styled from "styled-components";
 import GlobalCss from "../global.css";
 import Header from "../components/header";
+import Footer from "./footer";
 
 export default function PlanetPage() {
   let { name } = useParams();
@@ -26,6 +27,7 @@ export default function PlanetPage() {
         <Header />
         {planet && <PlanetsNav planet={planet} />}
         {planet && <Main planet={planet} />}
+        {planet && <Footer planet={planet} />}
       </Wrapper>
     </>
   );

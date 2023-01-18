@@ -64,7 +64,7 @@ const P = styled.p`
 const PlanetImg = styled.img`
   width: 111px;
   height: 111px;
-  margin: 95px auto;
+  margin: 85px auto;
 `;
 
 const Content = styled.span`
