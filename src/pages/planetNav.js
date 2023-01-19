@@ -5,9 +5,15 @@ export default function PlanetsNav(props) {
   return (
     <NavContainer>
       <Nav>
-        <H5 planet={props.planet}>OVERVIEW</H5>
-        <H5 planet={props.planet}>STRUCTURE</H5>
-        <H5 planet={props.planet}>SURFACE</H5>
+        <Div planet={props.planet}>
+          <P>01</P>OVERVIEW
+        </Div>
+        <Div planet={props.planet}>
+          <P>02</P>STRUCTURE
+        </Div>
+        <Div planet={props.planet}>
+          <P>03</P>SURFACE
+        </Div>
       </Nav>
       <Border></Border>
     </NavContainer>
@@ -33,6 +39,14 @@ const Nav = styled.nav`
     gap: 16px;
   }
 `;
+const P = styled.p`
+  display: none;
+  @media (min-width: 768px) {
+    display: flex;
+    margin: 0;
+    opacity: 0.5;
+  }
+`;
 
 const Border = styled.div`
   position: absolute;
@@ -49,7 +63,7 @@ const Border = styled.div`
     display: none;
   }
 `;
-const H5 = styled.h5`
+const Div = styled.div`
   font-family: "Spartan", sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -65,13 +79,18 @@ const H5 = styled.h5`
     border-bottom: 2px solid ${(props) => props.planet.color};
   }
   @media (min-width: 768px) {
-    flex-direction: column;
-    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 17px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     width: 280px;
     height: 40px;
     text-align: left;
-    padding: 13px 20px;
+    padding: 0;
+    padding-left: 20px;
     &:hover {
       background-color: ${(props) => props.planet.color};
     }
