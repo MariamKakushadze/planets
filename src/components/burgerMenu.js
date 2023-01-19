@@ -17,7 +17,7 @@ export default function BurgerMenu() {
       <Ul>
         {menuItems.map((item, index) => {
           return (
-            <Navlink to={`/${item.name}`} key={index}>
+            <Navlink to={`/${item.name.toLowerCase()}`} key={index}>
               <Circle style={{ backgroundColor: `${item.color}` }} />
               <PlanetName>{item.name}</PlanetName>
               <Arrow />

@@ -1,15 +1,13 @@
 import styled from "styled-components";
 import burgerIcon from "../assets/icon-hamburger.svg";
-import { NavLink as Link } from "react-router-dom";
+import React from "react";
 
-export default function Header() {
+export default function Header({ isOpen, setIsOpen }) {
   return (
     <HeaderContainer>
       <HeaderWrapper>
         <H1>THE PLANETS</H1>
-        <Navlink to="/menu">
-          <BurgerMenuIcon />
-        </Navlink>
+        <BurgerMenuIcon onClick={() => setIsOpen(!isOpen)} />
       </HeaderWrapper>
       <Div></Div>
     </HeaderContainer>
@@ -31,12 +29,6 @@ const H1 = styled.h1`
   letter-spacing: -1.05px;
   color: #ffffff;
   margin: 0;
-`;
-
-const Navlink = styled(Link)`
-  text-decoration: none;
-  margin: 0;
-  cursor: pointer;
 `;
 
 const BurgerMenuIcon = styled.div`

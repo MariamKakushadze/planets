@@ -1,33 +1,29 @@
 import { React, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import data from "../data.json";
-import Main from "./mainInfo";
-import PlanetsNav from "./planetNav";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import GlobalCss from "../global.css";
 import Header from "../components/header";
-import Footer from "./footer";
+import BurgerMenu from "../components/burgerMenu";
+import Planet from "./planet";
 
 export default function PlanetPage() {
-  let { name } = useParams();
-  const [planet, setPlanet] = useState({});
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const [prevLocation, setPrevLocation] = useState(location);
 
   useEffect(() => {
-    const planetData = data.find(
-      (planet) => planet.name.toLowerCase() === name.toLowerCase()
-    );
-    console.log(data);
-    setPlanet(planetData || {});
-  }, [name]);
+    if (location !== prevLocation) {
+      setIsOpen(false);
+    }
+    setPrevLocation(location);
+  }, [location, prevLocation, setIsOpen]);
 
   return (
     <>
       <Wrapper>
         <GlobalCss />
-        <Header />
-        {planet && <PlanetsNav planet={planet} />}
-        {planet && <Main planet={planet} />}
-        {planet && <Footer planet={planet} />}
+        <Header isOpen={isOpen} setIsOpen={setIsOpen} />
+        {isOpen ? <BurgerMenu /> : <Planet />}
       </Wrapper>
     </>
   );
