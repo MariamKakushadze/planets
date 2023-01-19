@@ -1,13 +1,21 @@
 import styled from "styled-components";
 import burgerIcon from "../assets/icon-hamburger.svg";
-import React from "react";
+import React, { useRef } from "react";
+import BurgerMenu from "./burgerMenu";
 
 export default function Header({ isOpen, setIsOpen }) {
+  const windowSize = useRef([window.innerWidth, window.innerHeight]);
+
   return (
     <HeaderContainer>
       <HeaderWrapper>
         <H1>THE PLANETS</H1>
-        <BurgerMenuIcon onClick={() => setIsOpen(!isOpen)} />
+        {windowSize.current[0] < 768 ? (
+          <BurgerMenuIcon onClick={() => setIsOpen(!isOpen)} />
+        ) : (
+          <BurgerMenu />
+        )}
+        <Menu></Menu>
       </HeaderWrapper>
       <Div></Div>
     </HeaderContainer>
@@ -22,6 +30,10 @@ const HeaderWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (min-width: 768px) {
+    flex-direction: column;
+    gap: 30px;
+  }
 `;
 const H1 = styled.h1`
   font-size: 28px;
@@ -29,6 +41,13 @@ const H1 = styled.h1`
   letter-spacing: -1.05px;
   color: #ffffff;
   margin: 0;
+`;
+
+const Menu = styled.div`
+  display: none;
+  @media (min-width: 768px) {
+    display: flex;
+  }
 `;
 
 const BurgerMenuIcon = styled.div`
@@ -49,4 +68,9 @@ const Div = styled.div`
   width: 100vw;
   height: 1px;
   padding: 0;
+  @media (min-width: 768px) {
+    left: -40px;
+    margin: 0;
+    bottom: 20px;
+  }
 `;

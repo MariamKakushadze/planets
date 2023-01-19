@@ -28,11 +28,14 @@ const FooterContainer = styled.section`
   flex-direction: column;
   gap: 8px;
   margin-top: 25px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 `;
 
 const Div = styled.div`
   mix-blend-mode: normal;
-
   border: 1px solid rgba(255, 255, 255, 0.2);
   width: 100%;
   height: 48px;
@@ -40,6 +43,14 @@ const Div = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
+  @media (min-width: 768px) {
+    width: 168px;
+    height: 88px;
+    flex-direction: column;
+    padding: 15px;
+    align-items: flex-start;
+    margin: 0;
+  }
 `;
 
 const Name = styled.p`

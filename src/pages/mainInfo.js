@@ -50,6 +50,12 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  @media (min-width: 768px) {
+    text-align: left;
+    max-width: 340px;
+    align-items: flex-start;
+    margin: 0;
+  }
 `;
 
 const P = styled.p`
@@ -60,11 +66,15 @@ const P = styled.p`
   font-size: 32px;
   line-height: 52px;
   text-transform: uppercase;
+  @media (min-width: 768px) {
+    margin: 0;
+    font-size: 48px;
+  }
 `;
 const PlanetImg = styled.img`
-  width: 111px;
-  height: 111px;
   margin: 85px auto;
+  width: auto;
+  max-width: 40%;
 `;
 
 const Content = styled.span`
@@ -75,6 +85,10 @@ const Content = styled.span`
   font-size: 11px;
   line-height: 22px;
   letter-spacing: 1px;
+  @media (min-width: 768px) {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+  }
 `;
 
 const Source = styled.div`
@@ -91,6 +105,9 @@ const Source = styled.div`
   line-height: 25px;
   mix-blend-mode: normal;
   opacity: 0.5;
+  @media (min-width: 768px) {
+    margin: 0;
+  }
 `;
 
 const Svg = styled.svg`

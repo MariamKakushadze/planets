@@ -1,17 +1,8 @@
 import styled from "styled-components";
 import ArrowIcon from "../assets/icon-chevron.svg";
 import { NavLink as Link } from "react-router-dom";
+import menuItems from "../menuData";
 export default function BurgerMenu() {
-  const menuItems = [
-    { color: "#DEF4FC", name: "MERCURY" },
-    { color: "#F7CC7F", name: "VENUS" },
-    { color: "#545BFE", name: "EARTH" },
-    { color: "#FF6A45", name: "MARS" },
-    { color: "#ECAD7A", name: "JUPITER" },
-    { color: "#FCCB6B", name: "SATURN" },
-    { color: "#65F0D5", name: "URANUS" },
-    { color: "#497EFA", name: "NEPTUNE" },
-  ];
   return (
     <BurgerMenuContainer>
       <Ul>
@@ -31,6 +22,9 @@ export default function BurgerMenu() {
 
 const BurgerMenuContainer = styled.nav`
   margin-top: 44px;
+  @media (min-width: 768px) {
+    margin: 0;
+  }
 `;
 
 const Ul = styled.ul`
@@ -39,6 +33,11 @@ const Ul = styled.ul`
   gap: 20px;
   padding: 0;
   margin: 0;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 33px;
+    justify-content: space-between;
+  }
 `;
 const Navlink = styled(Link)`
   display: flex;
@@ -52,6 +51,11 @@ const Navlink = styled(Link)`
   }
   margin: 0;
   text-decoration: none;
+  @media (min-width: 768px) {
+    gap: 0;
+    border-bottom: none;
+    color: rgba(255, 255, 255, 0.5);
+  }
 `;
 
 const Circle = styled.div`
@@ -59,6 +63,9 @@ const Circle = styled.div`
   height: 20px;
   border-radius: 20px;
   margin: 0;
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
 const PlanetName = styled.h3`
@@ -70,6 +77,10 @@ const PlanetName = styled.h3`
   letter-spacing: 1.36364px;
   color: #ffffff;
   margin: 0;
+  @media (min-width: 768px) {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+  }
 `;
 
 const Arrow = styled.div`
@@ -77,4 +88,7 @@ const Arrow = styled.div`
   height: 8px;
   background: url(${ArrowIcon});
   margin-right: 10px;
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;

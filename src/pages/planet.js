@@ -18,10 +18,10 @@ export default function Planet() {
   }, [name]);
 
   return (
-    <>
-      {planet && <PlanetsNav planet={planet} />}
-      {planet && <Main planet={planet} />}
-      {planet && <Footer planet={planet} />}
-    </>
+    <div style={{ position: "relative" }}>
+      <PlanetsNav planet={planet} />
+      <Main planet={planet} />
+      <Footer planet={planet} />
+    </div>
   );
 }
