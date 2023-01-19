@@ -1,14 +1,12 @@
-import { Route, Routes } from "react-router-dom";
-
-import Menu from "./components/menu";
+import { Route, Routes, Navigate } from "react-router-dom";
 import PlanetPage from "./pages/PlanetPage";
+import { React } from "react";
 
 function App() {
   return (
     <Routes>
+      <Route path="/" element={<Navigate replace to="/mercury" />} />
       <Route path="/:name" element={<PlanetPage />} />
-
-      <Route path="/Menu" element={<Menu />} />
     </Routes>
   );
 }

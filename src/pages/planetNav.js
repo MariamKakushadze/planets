@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function PlanetsNav() {
+export default function PlanetsNav(props) {
   return (
     <>
       <Nav>
