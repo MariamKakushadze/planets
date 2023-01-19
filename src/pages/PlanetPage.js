@@ -9,14 +9,10 @@ import Planet from "./planet";
 export default function PlanetPage() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const [prevLocation, setPrevLocation] = useState(location);
 
   useEffect(() => {
-    if (location !== prevLocation) {
-      setIsOpen(false);
-    }
-    setPrevLocation(location);
-  }, [location, prevLocation, setIsOpen]);
+    setIsOpen(false);
+  }, [location]);
 
   return (
     <>
