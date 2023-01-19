@@ -18,7 +18,7 @@ export default function Planet() {
   }, [name]);
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative", maxWidth: "1100px" }}>
       <PlanetsNav planet={planet} />
       <Main planet={planet} />
       <Footer planet={planet} />

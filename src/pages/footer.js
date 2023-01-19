@@ -27,7 +27,9 @@ const FooterContainer = styled.section`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin: 0;
   margin-top: 25px;
+  max-width: 1400px;
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
@@ -51,6 +53,10 @@ const Div = styled.div`
     align-items: flex-start;
     margin: 0;
   }
+  @media (min-width: 1440px) {
+    width: 255px;
+    height: 128px;
+  }
 `;
 
 const Name = styled.p`
@@ -64,6 +70,12 @@ const Name = styled.p`
   mix-blend-mode: normal;
   opacity: 0.5;
   margin: 0;
+  @media (min-width: 768px) {
+    font-size: 11px;
+  }
+  @media (min-width: 1440px) {
+    font-size: 14px;
+  }
 `;
 
 const Stats = styled.p`
@@ -75,4 +87,9 @@ const Stats = styled.p`
   letter-spacing: -0.75px;
   margin: 0;
   color: #ffffff;
+  @media (min-width: 1440px) {
+    font-size: 40px;
+    line-height: 52px;
+    letter-spacing: -1.5px;
+  }
 `;

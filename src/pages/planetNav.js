@@ -26,6 +26,10 @@ const NavContainer = styled.div`
     bottom: 150px;
     right: 0;
   }
+  @media (min-width: 1440px) {
+    position: absolute;
+    bottom: 190px;
+  }
 `;
 
 const Nav = styled.nav`
@@ -92,7 +96,15 @@ const Div = styled.div`
     padding: 0;
     padding-left: 20px;
     &:hover {
+      background-color: rgba(216, 216, 216, 0.2);
+      border-bottom: none;
+    }
+    &:active {
       background-color: ${(props) => props.planet.color};
     }
+  }
+  @media (min-width: 1440px) {
+    width: 350px;
+    height: 48px;
   }
 `;

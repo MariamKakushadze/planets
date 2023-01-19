@@ -10,7 +10,7 @@ export default function BurgerMenu() {
           return (
             <Navlink to={`/${item.name.toLowerCase()}`} key={index}>
               <Circle style={{ backgroundColor: `${item.color}` }} />
-              <PlanetName>{item.name}</PlanetName>
+              <PlanetName color={item.color}>{item.name}</PlanetName>
               <Arrow />
             </Navlink>
           );
@@ -80,6 +80,15 @@ const PlanetName = styled.h3`
   @media (min-width: 768px) {
     font-size: 11px;
     color: rgba(255, 255, 255, 0.5);
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+  @media (min-width: 1440px) {
+    padding-top:20px;
+    &:hover {
+      border-top: 4px solid ${(props) => props.color};
+      
   }
 `;
 

@@ -15,7 +15,6 @@ export default function Header({ isOpen, setIsOpen }) {
         ) : (
           <BurgerMenu />
         )}
-        <Menu></Menu>
       </HeaderWrapper>
       <Div></Div>
     </HeaderContainer>
@@ -34,6 +33,10 @@ const HeaderWrapper = styled.div`
     flex-direction: column;
     gap: 30px;
   }
+  @media (min-width: 1440px) {
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 const H1 = styled.h1`
   font-size: 28px;
@@ -41,13 +44,6 @@ const H1 = styled.h1`
   letter-spacing: -1.05px;
   color: #ffffff;
   margin: 0;
-`;
-
-const Menu = styled.div`
-  display: none;
-  @media (min-width: 768px) {
-    display: flex;
-  }
 `;
 
 const BurgerMenuIcon = styled.div`
@@ -71,6 +67,10 @@ const Div = styled.div`
   @media (min-width: 768px) {
     left: -40px;
     margin: 0;
-    bottom: 20px;
+  }
+  @media (min-width: 1440px) {
+    bottom: -10px;
+    left: -2.8%;
+    max-width: 1400px;
   }
 `;

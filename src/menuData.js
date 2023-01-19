@@ -1,5 +1,5 @@
 const menuItems = [
-  { color: "#DEF4FC", name: "MERCURY" },
+  { color: "#419EBB", name: "MERCURY" },
   { color: "#F7CC7F", name: "VENUS" },
   { color: "#545BFE", name: "EARTH" },
   { color: "#FF6A45", name: "MARS" },

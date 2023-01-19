@@ -14,7 +14,9 @@ export default function Main(props) {
 
   return (
     <MainCOntainer>
-      <PlanetImg src={image} alt="" />
+      <ImageDiv>
+        <PlanetImg src={image} alt="" />
+      </ImageDiv>
       <TextContainer>
         <P>{props.planet.name}</P>
         <Content>
@@ -43,7 +45,12 @@ export default function Main(props) {
 
 const MainCOntainer = styled.div`
   text-align: center;
+  margin: 0;
   margin-top: 20px;
+  max-width: 1100px;
+  @media (min-width: 1440px) {
+    display: flex;
+  }
 `;
 
 const TextContainer = styled.div`
@@ -55,6 +62,10 @@ const TextContainer = styled.div`
     max-width: 340px;
     align-items: flex-start;
     margin: 0;
+  }
+  @media (min-width: 1440px) {
+    order: 2;
+    margin-top: 120px;
   }
 `;
 
@@ -70,11 +81,34 @@ const P = styled.p`
     margin: 0;
     font-size: 48px;
   }
+  @media (min-width: 1440px) {
+    font-size: 60px;
+    line-height: 104px;
+  }
 `;
+const ImageDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  @media (min-width: 768px) {
+    width: 500px;
+    height: 500px;
+  }
+  @media (min-width: 1440px) {
+    order: 1;
+    margin: 20px auto;
+    width: 650px;
+    height: 650px;
+  }
+`;
+
 const PlanetImg = styled.img`
-  margin: 85px auto;
-  width: auto;
-  max-width: 40%;
+  width: 60%;
+  @media (min-width: 1440px) {
+    width: auto;
+  }
 `;
 
 const Content = styled.span`
@@ -88,6 +122,10 @@ const Content = styled.span`
   @media (min-width: 768px) {
     margin: 0;
     color: rgba(255, 255, 255, 0.7);
+  }
+  @media (min-width: 1440px) {
+    font-size: 14px;
+    line-height: 25px;
   }
 `;
 
@@ -107,6 +145,10 @@ const Source = styled.div`
   opacity: 0.5;
   @media (min-width: 768px) {
     margin: 0;
+  }
+  @media (min-width: 1440px) {
+    font-size: 14px;
+    line-height: 25px;
   }
 `;
 
