@@ -8,6 +8,7 @@ import Footer from "./footer";
 export default function Planet() {
   let { name } = useParams();
   const [planet, setPlanet] = useState({});
+  const [selectedNav, setSelectedNav] = useState("overview");
 
   useEffect(() => {
     const planetData = data.find(
@@ -19,8 +20,8 @@ export default function Planet() {
 
   return (
     <div style={{ position: "relative", maxWidth: "1100px" }}>
-      <PlanetsNav planet={planet} />
-      <Main planet={planet} />
+      <PlanetsNav planet={planet} setSelectedNav={setSelectedNav} />
+      <Main planet={planet} selectedNav={selectedNav} />
       <Footer planet={planet} />
     </div>
   );

@@ -1,17 +1,22 @@
 import styled from "styled-components";
+import { React, useState } from "react";
 
-export default function PlanetsNav(props) {
-  console.log(props.planet.color);
+export default function PlanetsNav({ planet, setSelectedNav }) {
+  console.log(planet.color);
+
+  const handleClick = (nav) => {
+    setSelectedNav(nav);
+  };
   return (
     <NavContainer>
       <Nav>
-        <Div planet={props.planet}>
+        <Div planet={planet} onClick={() => handleClick("overview")}>
           <P>01</P>OVERVIEW
         </Div>
-        <Div planet={props.planet}>
+        <Div planet={planet} onClick={() => handleClick("structure")}>
           <P>02</P>STRUCTURE
         </Div>
-        <Div planet={props.planet}>
+        <Div planet={planet} onClick={() => handleClick("surface")}>
           <P>03</P>SURFACE
         </Div>
       </Nav>

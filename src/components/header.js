@@ -1,16 +1,14 @@
 import styled from "styled-components";
 import burgerIcon from "../assets/icon-hamburger.svg";
-import React, { useRef } from "react";
+import React from "react";
 import BurgerMenu from "./burgerMenu";
 
 export default function Header({ isOpen, setIsOpen }) {
-  const windowSize = useRef([window.innerWidth, window.innerHeight]);
-
   return (
     <HeaderContainer>
       <HeaderWrapper>
         <H1>THE PLANETS</H1>
-        {windowSize.current[0] < 768 ? (
+        {window.innerWidth < 768 ? (
           <BurgerMenuIcon onClick={() => setIsOpen(!isOpen)} />
         ) : (
           <BurgerMenu />

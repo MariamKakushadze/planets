@@ -1,33 +1,66 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function Main(props) {
-  //const photo = import(`../assets/planet-${props.planet.name}.svg`);
-
+export default function Main({ planet, selectedNav }) {
   const [image, setImage] = useState();
+  const [imageGeo, setImageGeo] = useState();
+  const [info, setInfo] = useState(null);
+  const [link, setLink] = useState();
 
-  if (props.planet && props.planet.name) {
-    import(`../assets/planet-${props.planet.name}.svg`).then((image) =>
-      setImage(image.default)
-    );
-  }
+  useEffect(() => {
+    switch (selectedNav) {
+      case "overview":
+        if (planet && planet.name) {
+          import(`../assets/planet-${planet.name}.svg`).then((image) =>
+            setImage(image.default)
+          );
+        }
+        setInfo(planet.overview && planet.overview.content);
+        setLink(planet.overview && planet.overview.source);
+        break;
 
+      case "structure":
+        if (planet && planet.name) {
+          import(`../assets/planet-${planet.name}-internal.svg`).then((image) =>
+            setImage(image.default)
+          );
+        }
+        setInfo(planet.structure && planet.structure.content);
+        setLink(planet.structure && planet.structure.source);
+        break;
+
+      case "surface":
+        if (planet && planet.name) {
+          import(`../assets/planet-${planet.name}.svg`).then((image) =>
+            setImage(image.default)
+          );
+        }
+        if (planet && planet.name) {
+          import(`../assets/geology-${planet.name}.png`).then((imageGeo) =>
+            setImageGeo(imageGeo.default)
+          );
+        }
+        setInfo(planet.geology && planet.geology.content);
+        setLink(planet.geology && planet.geology.source);
+        break;
+
+      default:
+        break;
+    }
+  }, [selectedNav, planet]);
+  console.log(link);
   return (
     <MainCOntainer>
       <ImageDiv>
         <PlanetImg src={image} alt="" />
+        {selectedNav === "surface" && <PlanetImgGeo src={imageGeo} alt="" />}
       </ImageDiv>
       <TextContainer>
-        <P>{props.planet.name}</P>
-        <Content>
-          {props.planet.overview && props.planet.overview.content}
-        </Content>
+        <P>{planet.name}</P>
+        <Content>{info}</Content>
         <Source>
           Source:
-          <A
-            href={props.planet.overview && props.planet.overview.source}
-            target="_blank"
-          >
+          <A href={link} target="_blank">
             Wikipedia
             <Svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
               <path
@@ -92,6 +125,7 @@ const ImageDiv = styled.div`
   justify-content: center;
   width: 300px;
   height: 300px;
+  position: relative;
   @media (min-width: 768px) {
     width: 500px;
     height: 500px;
@@ -108,6 +142,18 @@ const PlanetImg = styled.img`
   width: 60%;
   @media (min-width: 1440px) {
     width: auto;
+  }
+`;
+const PlanetImgGeo = styled.img`
+  position: absolute;
+  top: 60%;
+  max-width: 100px;
+  @media (min-width: 768px) {
+    max-width: 120px;
+    top: 65%;
+  }
+  @media (min-width: 1440px) {
+    max-width: 150px;
   }
 `;
 

@@ -1,4 +1,4 @@
-import { React, useEffect, useState, useRef } from "react";
+import { React, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import GlobalCss from "../global.css";
@@ -8,7 +8,6 @@ import Planet from "./planet";
 
 export default function PlanetPage() {
   const [isOpen, setIsOpen] = useState(false);
-  const windowSize = useRef([window.innerWidth, window.innerHeight]);
   const location = useLocation();
 
   useEffect(() => {

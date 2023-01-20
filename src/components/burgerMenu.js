@@ -2,13 +2,24 @@ import styled from "styled-components";
 import ArrowIcon from "../assets/icon-chevron.svg";
 import { NavLink as Link } from "react-router-dom";
 import menuItems from "../menuData";
+
 export default function BurgerMenu() {
+  const handleClick = (event, item) => {
+    if (window.innerWidth > 768) {
+      window.location.href(`/${item.name.toLowerCase()}`);
+    }
+  };
+
   return (
     <BurgerMenuContainer>
       <Ul>
         {menuItems.map((item, index) => {
           return (
-            <Navlink to={`/${item.name.toLowerCase()}`} key={index}>
+            <Navlink
+              to={`/${item.name.toLowerCase()}`}
+              key={index}
+              onClick={(event) => handleClick(event, item)}
+            >
               <Circle style={{ backgroundColor: `${item.color}` }} />
               <PlanetName color={item.color}>{item.name}</PlanetName>
               <Arrow />
