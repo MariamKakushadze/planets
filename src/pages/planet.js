@@ -14,13 +14,17 @@ export default function Planet() {
     const planetData = data.find(
       (planet) => planet.name.toLowerCase() === name.toLowerCase()
     );
-    console.log(data);
+
     setPlanet(planetData || {});
   }, [name]);
 
   return (
     <div style={{ position: "relative", maxWidth: "1100px" }}>
-      <PlanetsNav planet={planet} setSelectedNav={setSelectedNav} />
+      <PlanetsNav
+        planet={planet}
+        setSelectedNav={setSelectedNav}
+        selectedNav={selectedNav}
+      />
       <Main planet={planet} selectedNav={selectedNav} />
       <Footer planet={planet} />
     </div>

@@ -48,7 +48,7 @@ export default function Main({ planet, selectedNav }) {
         break;
     }
   }, [selectedNav, planet]);
-  console.log(link);
+
   return (
     <MainCOntainer>
       <ImageDiv>
