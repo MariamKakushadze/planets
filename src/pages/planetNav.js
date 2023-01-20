@@ -1,22 +1,35 @@
 import styled from "styled-components";
-import { React, useState } from "react";
+import { React } from "react";
 
-export default function PlanetsNav({ planet, setSelectedNav }) {
-  console.log(planet.color);
-
+export default function PlanetsNav({ planet, selectedNav, setSelectedNav }) {
   const handleClick = (nav) => {
     setSelectedNav(nav);
   };
   return (
     <NavContainer>
       <Nav>
-        <Div planet={planet} onClick={() => handleClick("overview")}>
+        <Div
+          activeStyle={{
+            color: "red",
+          }}
+          planet={planet}
+          onClick={() => handleClick("overview")}
+          className={selectedNav === "overview" ? "active" : ""}
+        >
           <P>01</P>OVERVIEW
         </Div>
-        <Div planet={planet} onClick={() => handleClick("structure")}>
+        <Div
+          planet={planet}
+          onClick={() => handleClick("structure")}
+          className={selectedNav === "structure" ? "active" : ""}
+        >
           <P>02</P>STRUCTURE
         </Div>
-        <Div planet={planet} onClick={() => handleClick("surface")}>
+        <Div
+          planet={planet}
+          onClick={() => handleClick("surface")}
+          className={selectedNav === "surface" ? "active" : ""}
+        >
           <P>03</P>SURFACE
         </Div>
       </Nav>
@@ -84,7 +97,10 @@ const Div = styled.div`
   margin: 0;
   cursor: pointer;
   padding-bottom: 17px;
-  &:hover {
+  &:active {
+    border-bottom: 2px solid ${(props) => props.planet.color};
+  }
+  &.active {
     border-bottom: 2px solid ${(props) => props.planet.color};
   }
   @media (min-width: 768px) {
@@ -105,6 +121,9 @@ const Div = styled.div`
       border-bottom: none;
     }
     &:active {
+      background-color: ${(props) => props.planet.color};
+    }
+    &.active {
       background-color: ${(props) => props.planet.color};
     }
   }
