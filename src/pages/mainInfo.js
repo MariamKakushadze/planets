@@ -11,8 +11,8 @@ export default function Main({ planet, selectedNav }) {
     switch (selectedNav) {
       case "overview":
         if (planet && planet.name) {
-          import(`../assets/planet-${planet.name}.svg`).then((image) =>
-            setImage(image.default)
+          import(`../assets/planet-${planet.name.toLowerCase()}.svg`).then(
+            (image) => setImage(image.default)
           );
         }
         setInfo(planet.overview && planet.overview.content);
@@ -21,9 +21,9 @@ export default function Main({ planet, selectedNav }) {
 
       case "structure":
         if (planet && planet.name) {
-          import(`../assets/planet-${planet.name}-internal.svg`).then((image) =>
-            setImage(image.default)
-          );
+          import(
+            `../assets/planet-${planet.name.toLowerCase()}-internal.svg`
+          ).then((image) => setImage(image.default));
         }
         setInfo(planet.structure && planet.structure.content);
         setLink(planet.structure && planet.structure.source);
@@ -31,13 +31,13 @@ export default function Main({ planet, selectedNav }) {
 
       case "surface":
         if (planet && planet.name) {
-          import(`../assets/planet-${planet.name}.svg`).then((image) =>
-            setImage(image.default)
+          import(`../assets/planet-${planet.name.toLowerCase()}.svg`).then(
+            (image) => setImage(image.default)
           );
         }
         if (planet && planet.name) {
-          import(`../assets/geology-${planet.name}.png`).then((imageGeo) =>
-            setImageGeo(imageGeo.default)
+          import(`../assets/geology-${planet.name.toLowerCase()}.png`).then(
+            (imageGeo) => setImageGeo(imageGeo.default)
           );
         }
         setInfo(planet.geology && planet.geology.content);
