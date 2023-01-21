@@ -4,22 +4,12 @@ import { NavLink as Link } from "react-router-dom";
 import menuItems from "../menuData";
 
 export default function BurgerMenu() {
-  const handleClick = (event, item) => {
-    if (window.innerWidth > 768) {
-      window.location.href(`/${item.name.toLowerCase()}`);
-    }
-  };
-
   return (
     <BurgerMenuContainer>
       <Ul>
         {menuItems.map((item, index) => {
           return (
-            <Navlink
-              to={`/${item.name.toLowerCase()}`}
-              key={index}
-              onClick={(event) => handleClick(event, item)}
-            >
+            <Navlink to={`/${item.name.toLowerCase()}`} key={index}>
               <Circle style={{ backgroundColor: `${item.color}` }} />
               <PlanetName color={item.color}>{item.name}</PlanetName>
               <Arrow />

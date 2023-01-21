@@ -8,11 +8,10 @@ export default function Header({ isOpen, setIsOpen }) {
     <HeaderContainer>
       <HeaderWrapper>
         <H1>THE PLANETS</H1>
-        {window.innerWidth < 768 ? (
+        {window.innerWidth < 768 && (
           <BurgerMenuIcon onClick={() => setIsOpen(!isOpen)} />
-        ) : (
-          <BurgerMenu />
         )}
+        {window.innerWidth > 768 && <BurgerMenu />}
       </HeaderWrapper>
       <Div></Div>
     </HeaderContainer>
