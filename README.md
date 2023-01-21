@@ -1,6 +1,6 @@
 # Frontend Mentor - Planets fact site
 
-![Design preview for the Planets fact site coding challenge](./src/assets/preview.jpg)
+![Design preview for the Planets fact site coding challenge](./src/assets/Planet.jpg)
 
 - [Vercel](https://planets-wine.vercel.app/mercury)
 
